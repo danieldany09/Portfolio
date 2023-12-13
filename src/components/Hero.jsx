@@ -25,7 +25,7 @@ const Hero = () => {
               Hello!
               <br />
             </span>
-            My Name is <span>Mani </span>
+            My Name is <span>Dani </span>
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
             Fullstack Developer <span style={{color: "white"}} > & </span> pen tester

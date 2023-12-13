@@ -8,7 +8,6 @@ export default class Journey extends Component {
   state = {
     journeys: []
   }
-  
   componentDidMount() {
 
     axios.get(`https://script.google.com/macros/s/${import.meta.env.VITE_KEY}/exec?action=read&table=journey`)
