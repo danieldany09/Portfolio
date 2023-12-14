@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import project_person from "../assets/images/Project_person.png";
+import project_person from "../assets/images/projects.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";

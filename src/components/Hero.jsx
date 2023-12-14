@@ -1,14 +1,15 @@
 import React from "react";
-import hero from "../assets/images/profil.png";
+import hero from "../assets/images/about.png";
 const Hero = () => {
   const social_media = [
-    {icon:"logo-github",link:"https://github.com/itsmanibharathi"},
-    {icon:"logo-discord",link:"https://discord.com/users/its_mani#4196"},
-    {icon:"logo-facebook",link:"#"},
-    {icon:"logo-linkedin",link:"https://www.linkedin.com/in/itsmanibharathi/"},
-    {icon:"logo-codepen",link:"https://codepen.io/owncodezs"},
-    {icon:"logo-twitter",link:"https://twitter.com/Mani02181917"},
-
+    {icon:"logo-github",link:"https://github.com/danieldany09"},
+    // {icon:"logo-discord",link:"#"},
+    // {icon:"logo-facebook",link:"#"},
+    
+    {icon:"logo-linkedin",link:"https://www.linkedin.com/in/danielrajav/"},
+    // {icon:"logo-codepen",link:"https://codepen.io/owncodezs"},
+    {icon:"logo-twitter",link:"https://twitter.com/Danie090203"},
+    {icon:"code",link:"https://leetcode.com/daniel0902/"},
   ];
   return (
     <section
@@ -28,9 +29,9 @@ const Hero = () => {
             My Name is <span>Dani </span>
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
-            Fullstack Developer <span style={{color: "white"}} > & </span> pen tester
+            FullStack Developer <span style={{color: "white"}} >  </span> 
           </h4>
-          <button className="btn-primary mt-8"><a href="#contact"> Contact Me </a></button>
+          <button className="btn-primary mt-8"><a href="#hireme"> About Me </a></button>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-5">
             {social_media?.map((i) => (
               <div

@@ -1,34 +1,42 @@
-import React from "react";
-import contact_img from "../assets/images/contact.png"
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 const Contact = () => {
   const contact_info = [
-    { logo: "mail", text: "owncodezs@gmail.com" ,link:`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&su=Hi+There&to=owncodezs@gmail.com&body=body+goes+here`},
-    { logo: "logo-whatsapp", text: "+91 6385687966",link:"https://wa.me/6385687966?text=hay+Mani" },
+    { logo: "mail", text: "danieharish@gmail.com" ,link:`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&su=Hi+There&to=danieharish@gmail.com&body=body+goes+here`},
+    { logo: "logo-whatsapp", text: "+91 9345844496",link:"https://wa.me/9345844496?text=hay+Mani" },
     {
       logo: "location",
-      text: "Erode",
-      link:"https://www.google.com/maps/place/Erode,+Tamil+Nadu/@11.3466179,77.6453559,12z/data=!3m1!4b1!4m5!3m4!1s0x3ba96f46762f4671:0xd97da6e3d9c7f75e!8m2!3d11.3410364!4d77.7171642"
+      text: "Madurai",
+      link:"https://www.google.com/maps/d/viewer?mid=1IpMIVqw64c8uaBVt1h-kM3yQoLw&hl=en&ll=9.902441419108333%2C78.11680549999998&z=12"
     },
   ];
-  const [formData, setFormData] = React.useState(
+   
+  const form = useRef(null);
+  const firstNameInput = useRef(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form.current);
+    const isEmpty = Array.from(formData.values()).every((value) => value.trim() === '');
+    if(isEmpty)
     {
-      from:'',
-      to:'owncodezs@gmail.com',
-      cc:'',
-      body:''
+       alert('Please fill in the form fields.');
+        firstNameInput.current.focus();
     }
-  )
-  function handleChange(event) {
-    // console.log(event)
-    const {name, value, type, checked} = event.target
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            [name]: type === "checkbox" ? checked : value
-        }
-    })
-  }
-  // console.log(`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&su=${formData.cc}&to=${formData.to }&body=${formData.body}`)
+    else{
+    emailjs.sendForm('service_rcgkziz', 'template_57ffqnn', form.current, 'fFuV8gsegOvEPuqfv')
+      .then((result) => {
+          console.log(result.text);
+          console.log("message sent");
+          alert("Email sent");
+          e.target.reset();
+      }, (error) => {
+          console.log(error.text);
+      });
+    }
+  };
   return (
     
     <section id="contact" className="py-10 px-3 text-white">
@@ -37,39 +45,32 @@ const Contact = () => {
           Contact <span className="text-cyan-600">Me</span>
         </h3>
         <p className="text-gray-400 mt-3 text-lg">Get in touch</p>
-        {/* <img className="lg:h-[32rem]  lg:absolute bottom-0 -right-3 object-cover " src={contact_img}/> */}
+       
         <div
           className="mt-0 flex md:flex-row flex-col
-         gap-6 max-w-5xl bg-gray-800  p-5  p-2 rounded-lg mx-auto "
+         gap-6 max-w-5xl bg-gray-800  p-7  p-2 rounded-lg mx-auto "
         >
-          <form className="flex flex-col flex-1 gap-5">
+          <form className="flex flex-col flex-1 gap-5" ref={form} onSubmit={sendEmail}>
             <input 
               type="text" 
               placeholder="Your Name"
-              onChange={handleChange}
-              required
-              name="cc"
-              value={formData.cc}
-            
+              name="user_name"   
+              ref={firstNameInput}      
             />
             <input 
               type="Email" 
               placeholder="Your Email Address"
-              onChange={handleChange}
-              name="from"
-              required
-              value={formData.from}
+              name="user_email"
             />
+
             <textarea 
+              type="submit" 
               placeholder="Your Message" 
-              rows={10}
-              required
-              onChange={handleChange}
-              name="body"
-              value={formData.body}
+              name="message"
             />
-            <button className="btn-primary w-fit"> <a href={`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&su=${formData.cc}&to=${formData.to }&body=${formData.body}`} target="_blank" rel="noopener noreferrer"> Send Message </a></button>
-          </form>
+            <div className="my-button bg-gray-700 hover:bg-gray-500 text-gray-800 border border-gray-500 px-2 py-1 rounded-md transition duration-300 cursor-pointer"><input style={{cursor:"pointer",color:"white"}} type="submit" value="Send" /></div>
+            
+            </form>
           <div className="flex flex-col  gap-7 ">
             {contact_info.map((contact, i) => (
               <div

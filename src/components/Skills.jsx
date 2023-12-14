@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import axios from "axios"
+import hero from "../assets/images/icons8-java (3).svg";
 export default class Skills extends Component {
   constructor(props){
     super(props)
@@ -62,7 +63,17 @@ export default class Skills extends Component {
                 className="w-32 h-32 flex items-center justify-center rounded-full"
               >
                 <div className="text-6xl w-28 h-28 bg-gray-900 rounded-full flex items-center justify-center group-hover:text-cyan-600">
-                  <ion-icon name={skill.logo}></ion-icon>
+                  {skill.path ? 
+                <svg xmlns="http://www.w3.org/2000/svg"
+      viewBox={skill.viewport}
+      fill="#000000" fill-rule="nonzero" 
+      stroke="currentColor"
+      strokeWidth="1"
+      width="60" height="60" 
+    >
+    <path d={skill.path}/>
+    </svg> : <ion-icon name={skill.logo}></ion-icon>
+  }
                 </div>
               </div>
               <p className="text-xl mt-3">{skill.skil_name}</p>

@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import axios from "axios";
-import hireMe from "../assets/images/hireMe.png";
+import hireMe from "../assets/images/hire.png";
 export default class Hireme extends Component {
   constructor(props){
     super(props)
@@ -35,7 +35,7 @@ export default class Hireme extends Component {
             {/* Do you want any work from me? */}
           </h2>
           <p className="lg:text-left text-justify max-w-lg text-sm mt-4 text-gray-200 leading-6">
-          Looking for a challenging role in a reputable organization to utilize my technical, database,and
+          Looking for a challenging role in a reputable organization to utilize my technical, database and
           management skills for the growth of the organization as well as to enhance my knowledge about
           new and emerging trends in the IT sector.
           </p>
