@@ -1,6 +1,5 @@
 import React,{Component} from "react";
 import axios from "axios"
-import hero from "../assets/images/icons8-java (3).svg";
 export default class Skills extends Component {
   constructor(props){
     super(props)
