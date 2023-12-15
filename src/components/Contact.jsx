@@ -68,7 +68,7 @@ const Contact = () => {
               placeholder="Your Message" 
               name="message"
             />
-            <button className="my-button bg-gray-700 hover:bg-gray-500 text-gray-800 border border-gray-500 px-2 py-1 rounded-md transition duration-300 cursor-pointer" ><input style={{cursor:"pointer",color:"white"}} type="submit" value="Send" /></button>
+            <button className="git pmy-button bg-gray-700 hover:bg-gray-500 text-gray-800 border border-gray-500 px-2 py-1 rounded-md transition duration-300 cursor-pointer" ><input style={{cursor:"pointer",color:"white"}} type="submit" value="Send" /></button>
             
             </form>
           <div className="flex flex-col  gap-7 ">
